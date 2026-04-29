@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { NetworkSwitcher } from "@/components/network-switcher";
+import { NetworkBadge } from "@/components/network-badge";
 import { WalletConnectionButton } from "@/components/wallet-connection-button";
 import { CommandPalette } from "@/components/command-palette";
 import { KeyboardShortcutsHelp } from "@/components/keyboard-shortcuts-help";

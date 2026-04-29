@@ -13,6 +13,8 @@ import { PageTransition } from "@/components/page-transition";
 import { LanguageProvider } from "@/i18n/provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/context/auth-context";
+import { NetworkProvider } from "@/context/network-context";
+import { NetworkWarning } from "@/components/network-warning";
 import {
   SITE_URL,
   absoluteUrl,
@@ -80,6 +82,7 @@ export default function RootLayout({
           <ThemeProvider>
           <LanguageProvider>
             <AuthProvider>
+            <NetworkProvider>
             <WalletProvider>
               <script defer data-domain="stellarinsure.io" src="https://plausible.io/js/script.js"></script>
               <StructuredData data={organizationStructuredData()} />
@@ -89,6 +92,7 @@ export default function RootLayout({
               <a className="skip-link" href="#main-content">
                 Skip to main content
               </a>
+              <NetworkWarning />
               <div className="page-shell">
                 <OfflineBanner />
                 <MaintenanceBanner />
@@ -105,6 +109,7 @@ export default function RootLayout({
                 </footer>
               </div>
             </WalletProvider>
+            </NetworkProvider>
             </AuthProvider>
           </LanguageProvider>
           </ThemeProvider>
