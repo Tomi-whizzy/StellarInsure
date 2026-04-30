@@ -1,3 +1,16 @@
+# [1.22.0](https://github.com/ChaoLing140/StellarInsure/compare/v1.21.1...v1.22.0) (2026-04-30)
+
+
+### Bug Fixes
+
+* **table:** improve table semantics and accessibility ([30be705](https://github.com/ChaoLing140/StellarInsure/commit/30be705a5e80ebb5d3c4d47f05ec5db28bb2c675)), closes [#143](https://github.com/ChaoLing140/StellarInsure/issues/143)
+
+
+### Features
+
+* **build:** configure route-level code splitting ([9605f69](https://github.com/ChaoLing140/StellarInsure/commit/9605f69c8556cfccb6c8b0235ffa412deefbf114)), closes [#150](https://github.com/ChaoLing140/StellarInsure/issues/150)
+* **components:** add accessible popover primitive ([c1928e6](https://github.com/ChaoLing140/StellarInsure/commit/c1928e6ac52f2873eb8e2aec48a8c4c66604b08e)), closes [#146](https://github.com/ChaoLing140/StellarInsure/issues/146)
+
 ## [1.21.1](https://github.com/ChaoLing140/StellarInsure/compare/v1.21.0...v1.21.1) (2026-04-29)
 
 
