@@ -122,6 +122,17 @@ export default function TransactionHistoryPage() {
   const isFiltering =
     deferredTypeFilter !== typeFilter || deferredStatusFilter !== statusFilter;
 
+  const hasActiveFilters = typeFilter !== 'all' || statusFilter !== 'all';
+
+  function handleClearFilters() {
+    startTransition(() => {
+      setTypeFilter('all');
+      setStatusFilter('all');
+      setPage(1);
+      setExpandedId(null);
+    });
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1200);
     return () => clearTimeout(timer);
@@ -171,13 +182,13 @@ export default function TransactionHistoryPage() {
     });
   }
 
-  async function handleRetryTransaction(transactionId: number) {
+  async function handleRetryTransaction(transactionId: number): Promise<void> {
     // Simulate retry API call
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       setTimeout(() => {
         // Simulate 80% success rate
         if (Math.random() > 0.2) {
-          resolve(undefined);
+          resolve();
         } else {
           reject(
             new Error('Network error: Unable to connect to Stellar network')
@@ -242,6 +253,17 @@ export default function TransactionHistoryPage() {
             ? t('history.filters.updating')
             : t('history.filters.upToDate')}
         </p>
+
+        {hasActiveFilters && (
+          <button
+            className="tx-clear-filters-btn"
+            onClick={handleClearFilters}
+            aria-label="Clear all transaction filters"
+          >
+            <Icon name="close" size="sm" aria-hidden="true" />
+            Clear filters
+          </button>
+        )}
       </div>
 
       {isLoading ? (
@@ -527,7 +549,7 @@ export default function TransactionHistoryPage() {
                                     aria-label={`Retry transaction ${tx.id}`}
                                   >
                                     <Icon
-                                      name="refresh-cw"
+                                      name="refresh"
                                       size="sm"
                                       aria-hidden="true"
                                     />
