@@ -133,6 +133,7 @@ export default function PolicyDetailPage({
   const claimId = useId();
   const assistId = useId();
 
+  const errorSummaryRef = useRef<HTMLDivElement>(null);
   const fullNameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
@@ -162,32 +163,36 @@ export default function PolicyDetailPage({
     setFormErrors((current) => ({ ...current, [field]: undefined }));
   }
 
-  function focusFirstError(errors: FormErrors) {
-    const orderedFields: Array<keyof FormState> = [
-      "fullName",
-      "email",
-      "phone",
-      "amount",
-      "notes",
-    ];
+  function focusFirstError(_errors: FormErrors) {
+    const summary = errorSummaryRef.current;
+    if (!summary) return;
+    summary.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    window.setTimeout(() => summary.focus(), 160);
+  }
 
-    const refs: Record<keyof FormState, HTMLElement | null> = {
-      fullName: fullNameRef.current,
-      email: emailRef.current,
-      phone: phoneRef.current,
-      amount: amountRef.current,
-      preferredChannel: null,
-      notes: notesRef.current,
-    };
+  const fieldRefs: Record<keyof FormState, { current: HTMLElement | null }> = {
+    fullName: fullNameRef,
+    email: emailRef,
+    phone: phoneRef,
+    amount: amountRef,
+    preferredChannel: { current: null },
+    notes: notesRef,
+  };
 
-    const firstField = orderedFields.find((field) => errors[field]);
-    if (!firstField) {
-      return;
-    }
+  const fieldLabels: Record<keyof FormState, string> = {
+    fullName: "Contact name",
+    email: "Update email",
+    phone: "Mobile number",
+    amount: "Review amount",
+    preferredChannel: "Preferred update channel",
+    notes: "Incident summary",
+  };
 
-    const element = refs[firstField];
-    element?.scrollIntoView({ behavior: "smooth", block: "center" });
-    window.setTimeout(() => element?.focus(), 160);
+  function focusField(field: keyof FormState) {
+    const el = fieldRefs[field].current;
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => el.focus(), 160);
   }
 
   function validateForm(policy: PolicyRecord): FormErrors {
@@ -527,6 +532,43 @@ export default function PolicyDetailPage({
           </div>
 
           <form className="support-form" noValidate onSubmit={handleSubmit}>
+            {Object.keys(formErrors).length > 0 && (
+              <div
+                ref={errorSummaryRef}
+                className="validation-summary"
+                role="alert"
+                aria-labelledby="error-summary-heading"
+                tabIndex={-1}
+              >
+                <div className="validation-summary__header">
+                  <Icon name="alert" size="md" tone="warning" aria-hidden="true" />
+                  <h3 id="error-summary-heading">
+                    {Object.keys(formErrors).length === 1
+                      ? "There is 1 error in this form"
+                      : `There are ${Object.keys(formErrors).length} errors in this form`}
+                  </h3>
+                </div>
+                <ul className="validation-summary__list">
+                  {(Object.keys(formErrors) as Array<keyof FormState>).map((field) =>
+                    formErrors[field] ? (
+                      <li key={field}>
+                        <button
+                          type="button"
+                          className="validation-summary__link"
+                          onClick={() => focusField(field)}
+                        >
+                          <span>{fieldLabels[field]}: </span>
+                          {formErrors[field]}
+                        </button>
+                      </li>
+                    ) : null,
+                  )}
+                </ul>
+                <p className="validation-summary__hint">
+                  Fix the errors above before submitting your handoff.
+                </p>
+              </div>
+            )}
             <div className="form-grid">
               <label className="field">
                 <span className="field__label">Contact name</span>
