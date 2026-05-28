@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/ChaoLing140/StellarInsure/compare/v1.24.1...v1.25.0) (2026-05-28)
+
+
+### Features
+
+* add claim form error summary with field navigation ([#340](https://github.com/ChaoLing140/StellarInsure/issues/340)) ([727f69a](https://github.com/ChaoLing140/StellarInsure/commit/727f69a8681119901d78ff0f2d82709ea6e335f0))
+
 ## [1.24.1](https://github.com/ChaoLing140/StellarInsure/compare/v1.24.0...v1.24.1) (2026-05-28)
 
 
