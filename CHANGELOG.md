@@ -1,3 +1,10 @@
+## [1.26.2](https://github.com/ChaoLing140/StellarInsure/compare/v1.26.1...v1.26.2) (2026-05-29)
+
+
+### Bug Fixes
+
+* improve header and notifications accessibility ([823e57f](https://github.com/ChaoLing140/StellarInsure/commit/823e57f569e5bb58bfe8aa9062d6a5c695c6b968))
+
 ## [1.26.1](https://github.com/ChaoLing140/StellarInsure/compare/v1.26.0...v1.26.1) (2026-05-29)
 
 
