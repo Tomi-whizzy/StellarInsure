@@ -1,3 +1,10 @@
+## [1.27.2](https://github.com/ChaoLing140/StellarInsure/compare/v1.27.1...v1.27.2) (2026-05-29)
+
+
+### Bug Fixes
+
+* render pending policy cards without hash href ([40a19ed](https://github.com/ChaoLing140/StellarInsure/commit/40a19ed985770a55f473befda244475381770b11))
+
 ## [1.27.1](https://github.com/ChaoLing140/StellarInsure/compare/v1.27.0...v1.27.1) (2026-05-29)
 
 
