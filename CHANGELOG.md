@@ -1,3 +1,14 @@
+# [1.27.0](https://github.com/ChaoLing140/StellarInsure/compare/v1.26.3...v1.27.0) (2026-05-29)
+
+
+### Features
+
+* **create:** add visible autosave status indicator ([0b4fb0b](https://github.com/ChaoLing140/StellarInsure/commit/0b4fb0be546be2d609ef5e5430739be9519645b1)), closes [#328](https://github.com/ChaoLing140/StellarInsure/issues/328)
+* **create:** add visible autosave status on create policy ([4171f71](https://github.com/ChaoLing140/StellarInsure/commit/4171f71ea10501f990fc1218128e194783ca361b)), closes [#328](https://github.com/ChaoLing140/StellarInsure/issues/328)
+* **create:** localize remaining hardcoded receipt copy ([d646fc7](https://github.com/ChaoLing140/StellarInsure/commit/d646fc7fcfdd0ee056fd89c35692a6103b1e3cbd)), closes [#331](https://github.com/ChaoLing140/StellarInsure/issues/331)
+* **metrics:** add chart data table fallback for policy metrics ([7ee308f](https://github.com/ChaoLing140/StellarInsure/commit/7ee308fd4e78bfa9a87840bf0dd183ec20ab1aae)), closes [#346](https://github.com/ChaoLing140/StellarInsure/issues/346)
+* **settings:** add arrow key navigation to settings tabs ([8181794](https://github.com/ChaoLing140/StellarInsure/commit/818179476f1f0069a68b6c398a491f924083f42b)), closes [#336](https://github.com/ChaoLing140/StellarInsure/issues/336)
+
 ## [1.26.3](https://github.com/ChaoLing140/StellarInsure/compare/v1.26.2...v1.26.3) (2026-05-29)
 
 
