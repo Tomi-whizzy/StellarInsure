@@ -1,3 +1,10 @@
+## [1.28.1](https://github.com/ChaoLing140/StellarInsure/compare/v1.28.0...v1.28.1) (2026-05-30)
+
+
+### Bug Fixes
+
+* add config guards and transaction filter validation ([809d1aa](https://github.com/ChaoLing140/StellarInsure/commit/809d1aa4c5f5ca917b4bdd8a184d8b81da4296a9))
+
 # [1.28.0](https://github.com/ChaoLing140/StellarInsure/compare/v1.27.2...v1.28.0) (2026-05-29)
 
 
