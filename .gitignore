@@ -46,8 +46,11 @@ __pycache__/
 *.so
 .Python
 venv/
+.venv/
 env/
 ENV/
+.coverage
+coverage.xml
 
 # Docker
 .dockerignore
